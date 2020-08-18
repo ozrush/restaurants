@@ -15,6 +15,10 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
+    public boolean isNew(){
+        return this.id == null;
+    }
+
     @Override
     public String toString() {
         return getClass().getSimpleName() + ":" + id;
