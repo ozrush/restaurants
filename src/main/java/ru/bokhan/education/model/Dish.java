@@ -1,8 +1,12 @@
 package ru.bokhan.education.model;
 
+import java.time.LocalDate;
+
 public class Dish extends AbstractNamedEntity {
 
     private Float price;
+    private Integer restaurantId;
+    private LocalDate date;
 
     public Dish(Integer id, String name, Float price) {
         super(id, name);

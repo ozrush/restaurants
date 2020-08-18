@@ -5,13 +5,13 @@ import java.time.LocalDate;
 public class Vote extends AbstractBaseEntity {
 
 private User user;
-private LocalDate date;
+private LocalDate created;
 private Restaurant restaurant;
 
-    public Vote(Integer id, User user, LocalDate date, Restaurant restaurant) {
+    public Vote(Integer id, User user, LocalDate created, Restaurant restaurant) {
         super(id);
         this.user = user;
-        this.date = date;
+        this.created = created;
         this.restaurant = restaurant;
     }
 
@@ -23,12 +23,12 @@ private Restaurant restaurant;
         this.user = user;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public LocalDate getCreated() {
+        return created;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setCreated(LocalDate created) {
+        this.created = created;
     }
 
     public Restaurant getRestaurant() {
@@ -45,7 +45,7 @@ private Restaurant restaurant;
                 "id=" + id +
                 ", user=" + user.getName()+
                 ", restaurant=" + restaurant.getName() +
-                ", date=" + date +
+                ", date=" + created +
                 '}';
     }
 }
