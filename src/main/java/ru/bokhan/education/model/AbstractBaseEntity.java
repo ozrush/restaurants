@@ -3,6 +3,9 @@ package ru.bokhan.education.model;
 public abstract class AbstractBaseEntity {
     protected Integer id;
 
+    public AbstractBaseEntity() {
+    }
+
     public AbstractBaseEntity(Integer id) {
         this.id = id;
     }

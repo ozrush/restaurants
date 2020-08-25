@@ -7,6 +7,8 @@ import ru.bokhan.education.repository.UserRepository;
 
 import java.util.List;
 
+import static ru.bokhan.education.util.ValidationUtil.checkNotFoundWithId;
+
 @Service
 public class UserService {
 
@@ -23,11 +25,11 @@ public class UserService {
     }
 
     public void delete(int id){
-        repository.delete(id);
+        checkNotFoundWithId(repository.delete(id), id);
     }
 
     public User get(int id){
-        return repository.get(id);
+        return checkNotFoundWithId(repository.get(id), id);
     }
 
     public List<User> getAll(){
@@ -35,7 +37,7 @@ public class UserService {
     }
 
     public void update(User user) {
-        repository.save(user);
+        checkNotFoundWithId(repository.save(user), user.getId());
     }
 
 

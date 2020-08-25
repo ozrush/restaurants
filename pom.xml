@@ -13,7 +13,7 @@
     <url>http://www.example.com</url>
 
     <properties>
-        <java.vervion>1.8</java.vervion>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
@@ -26,9 +26,6 @@
         <!--    Tests    -->
         <junit.version>4.13</junit.version>
         <assertj.version>3.16.1</assertj.version>
-
-        <!--    <maven.compiler.source>1.7</maven.compiler.source>-->
-        <!--    <maven.compiler.target>1.7</maven.compiler.target>-->
     </properties>
 
 

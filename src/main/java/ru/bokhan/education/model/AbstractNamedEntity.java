@@ -2,6 +2,9 @@ package ru.bokhan.education.model;
 
 public abstract class AbstractNamedEntity extends AbstractBaseEntity {
 
+    public AbstractNamedEntity() {
+    }
+
     protected String name;
 
     public AbstractNamedEntity(Integer id, String name) {

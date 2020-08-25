@@ -7,11 +7,19 @@ public class User extends AbstractNamedEntity {
     private Role role;
     private Vote vote;
 
-    public User(Integer id, String name, String email, String password, Role role) {
+    public User() {
+    }
+
+    public User(User u) {
+        this(u.getId(), u.getName(), u.getEmail(), u.getPassword(), u.getRole(), u.getVote());
+    }
+
+    public User(Integer id, String name, String email, String password, Role role, Vote vote)  {
         super(id, name);
         this.email = email;
         this.password = password;
         this.role = role;
+        this.vote = vote;
     }
 
     public String getEmail() {
@@ -53,7 +61,7 @@ public class User extends AbstractNamedEntity {
                 ", email=" + email +
                 ", name=" + name +
                 ", role=" + role +
-                ", vote=" + vote.getRestaurant().getName() +
+                ", vote=" + vote +
                 '}';
     }
 }
