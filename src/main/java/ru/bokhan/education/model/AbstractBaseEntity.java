@@ -18,7 +18,7 @@ public abstract class AbstractBaseEntity {
         this.id = id;
     }
 
-    public boolean isNew(){
+    public boolean isNew() {
         return this.id == null;
     }
 
