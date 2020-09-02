@@ -13,8 +13,10 @@ import ru.bokhan.education.util.exception.NotFoundException;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThrows;
 import static ru.bokhan.education.UserTestData.*;
+import static ru.bokhan.education.util.Constants.USER_ID;
 
 @ContextConfiguration({
         "classpath:spring/spring-app.xml",
@@ -36,40 +38,41 @@ public class UserServiceTest {
         Integer newId = created.getId();
         User newUser = getNew();
         newUser.setId(newId);
-        assertMatch(created,newUser);
-        assertMatch(service.get(newId),newUser);
+        assertMatch(created, newUser);
+        assertMatch(service.get(newId), newUser);
     }
 
     @Test
-    public void delete() throws Exception{
+    public void delete() throws Exception {
         service.delete(USER_ID);
         assertNull(repository.get(USER_ID));
     }
 
     @Test
-    public void deleteNotFound() throws Exception{
+    public void deleteNotFound() throws Exception {
         assertThrows(NotFoundException.class, () -> service.delete(NOT_FOUND));
     }
 
     @Test
-    public void get() throws Exception{
+    public void get() throws Exception {
         User user = service.get(USER_ID);
         assertMatch(user, USER);
     }
+
     @Test
-    public void getNotFound() throws Exception{
+    public void getNotFound() throws Exception {
         assertThrows(NotFoundException.class, () -> service.get(NOT_FOUND));
     }
 
     @Test
-    public void update() throws Exception{
+    public void update() throws Exception {
         User updated = getUpdated();
         service.update(updated);
         assertMatch(service.get(USER_ID), updated);
     }
 
     @Test
-    public void getAll() throws Exception{
+    public void getAll() throws Exception {
         List<User> all = service.getAll();
         assertMatch(all, ADMIN, USER);
     }
